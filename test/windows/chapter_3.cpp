@@ -47,10 +47,15 @@ map<string, fcb_func> map_func;
 void help();
 void string_init();
 void string_read_write();
+void string_read_write1();
+void string_read_write2();
+void string_read_write3();
 void string_size_type();
 void string_compare();
 void string_add();
 void string_for();
+void string_for1();
+void string_for2();
 void string_visit();
 void string_visit1();
 void string_visit2();
@@ -63,10 +68,15 @@ int main()
     REG_FUNC("help", help);
     REG_FUNC("string_init", string_init);
     REG_FUNC("string_read_write", string_read_write);
+    REG_FUNC("string_read_write1", string_read_write1);
+    REG_FUNC("string_read_write2", string_read_write2);
+    REG_FUNC("string_read_write3", string_read_write3);
     REG_FUNC("string_size_type", string_size_type);
     REG_FUNC("string_compare", string_compare);
     REG_FUNC("string_add", string_add);
     REG_FUNC("string_for", string_for);
+    REG_FUNC("string_for1", string_for1);
+    REG_FUNC("string_for2", string_for2);
     REG_FUNC("string_visit", string_visit);
     REG_FUNC("string_visit1", string_visit1);
     REG_FUNC("string_visit2", string_visit2);
@@ -94,9 +104,11 @@ void help()
 {
     cout << "the functions name list:" << endl;
     cout << "------------------------------------------" << endl;
+    decltype(map_func.size()) index = 0;
     for (auto itr : map_func)
     {
-        cout << itr.first << " " << itr.second << endl;
+        cout << itr.first << "------"<< index << endl;
+        ++index;
     }
     cout << "------------------------------------------" << endl;
     return;
@@ -120,11 +132,15 @@ void string_init()
 }
 void string_read_write()
 {
-    /*
+    DEBUG_INFO("\n");
     string s1, s2;
     cin >> s1 >> s2;
     cout << s1 << s2 << endl;
+    return;
+}
 
+void string_read_write1()
+{
     string word;
     while (cin >> word)
         cout << word << endl;
@@ -132,12 +148,20 @@ void string_read_write()
     string line;
     while (getline(cin, line))
         cout << line.length() << ":" << line << endl;
+    return;
+}
 
+void string_read_write2()
+{
     string line;
     while (getline(cin, line))
         if (!line.empty())
             cout << line << endl;
-    */
+    return;
+}
+
+void string_read_write3()
+{
     string line;
     while (getline(cin, line))
         if (line.size() > 10)
@@ -198,11 +222,17 @@ void string_for()
     DEBUG_INFO("\n");
     string line;
     getchar();
-    /*
     while (getline(cin, line))
         for (auto &c : line)
             cout << c << endl;
+    return;
+}
 
+void string_for1()
+{
+    DEBUG_INFO("\n");
+    string line;
+    getchar();
     decltype(line.length()) punct_num = 0;
     while (getline(cin, line))
     {
@@ -212,7 +242,14 @@ void string_for()
         cout << punct_num << endl;
         punct_num = 0;
     }
-    */
+    return;
+}
+
+void string_for2()
+{
+    DEBUG_INFO("\n");
+    string line;
+    getchar();
     while (getline(cin, line))
     {
         for (auto &c : line)
